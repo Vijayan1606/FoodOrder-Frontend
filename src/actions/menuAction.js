@@ -4,7 +4,7 @@ import { GET_MENU_FAIL, GET_MENU_REQUEST, GET_MENU_SUCCESS } from "../constants/
 export const getMenus = (id) => async (dispatch) => {
     try{
         dispatch({type: GET_MENU_REQUEST});
-        const response = await axios.get(`/api/v1/eats/stores/${id}/menus`);
+        const response = await axios.get(`https://foodorder-project-7vs6.onrender.com/api/v1/eats/stores/${id}/menus`);
         console.log(response.data.data[0].menu);
         dispatch({
             type:GET_MENU_SUCCESS,
