@@ -5,7 +5,7 @@ export const getRestaurants = () => {
     return async (dispatch) =>{
        try{
         dispatch({type: ALL_RESTAURANTS_REQUEST});
-        let link = 'https://foodorder-project-7vs6.onrender.com/stores';
+        let link = 'https://foodorder-project-7vs6.onrender.com/api/v1/eats/stores';
         await axios.get(link);
         const {data}=await axios.get(link);
         console.log(data);
