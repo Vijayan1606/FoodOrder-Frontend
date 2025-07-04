@@ -41,7 +41,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://foodorder-project-7vs6.onrender.com/login`,
+      `https://foodorder-project-7vs6.onrender.com/api/v1/users/login`,
       {
         email,
         password,
@@ -68,7 +68,7 @@ export const register = (userData) => async (dispatch) => {
       headers: { "Content-Type": "multipart/form-data" },
     };
 
-    const { data } = await axios.post(`https://foodorder-project-7vs6.onrender.com/signup`, userData, config);
+    const { data } = await axios.post(`https://foodorder-project-7vs6.onrender.com/api/v1/users/signup`, userData, config);
     dispatch({
       type: REGISTER_USER_SUCCESS,
       payload: data.data.user,
@@ -87,7 +87,7 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const { data } = await axios.get(`https://foodorder-project-7vs6.onrender.com/me`);
+    const { data } = await axios.get(`https://foodorder-project-7vs6.onrender.com/api/v1/users/me`);
     dispatch({
       type: LOAD_USER_SUCCESS,
       payload: data.user,
