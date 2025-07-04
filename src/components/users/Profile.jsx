@@ -19,7 +19,7 @@ const Profile = () => {
                   <img
                     className="rounded-circle figure-img img-fluid"
                     src={user?.avatar.url}
-                    alt={user?.name}
+                    alt={user?.name || "User profile image"}
                   />
                 </figure>
                 <span>Welcome {user?.name}</span>
