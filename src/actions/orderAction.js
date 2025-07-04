@@ -25,7 +25,7 @@ export const createOrder = (session_id) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const { data } = await axios.post(
-      "/api/v1/eats/orders/new",
+      "https://foodorder-project-7vs6.onrender.com/api/v1/eats/orders/new",
       { session_id },
       config
     );
@@ -53,7 +53,7 @@ export const payment = (items, restaurant) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const { data } = await axios.post(
-      "/api/v1/payment/process",
+      "https://foodorder-project-7vs6.onrender.com/api/v1/payment/process",
       {
         items,
         restaurant,
@@ -77,7 +77,7 @@ export const myOrders = () => async (dispatch) => {
     dispatch({
       type: MY_ORDER_REQUEST,
     });
-    const { data } = await axios.get("/api/v1/eats/orders/me/myOrders");
+    const { data } = await axios.get("https://foodorder-project-7vs6.onrender.com/api/v1/eats/orders/me/myOrders");
     dispatch({
       type: MY_ORDER_SUCCESS,
       payload: data.orders,
@@ -97,7 +97,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     dispatch({
       type: ORDER_DETAILS_REQUEST,
     });
-    const { data } = await axios.get(`/api/v1/eats/orders/${id}`);
+    const { data } = await axios.get(`https://foodorder-project-7vs6.onrender.com/api/v1/eats/orders/${id}`);
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
       payload: data.order,
