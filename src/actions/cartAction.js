@@ -8,7 +8,7 @@ import {
 
 export const fetchCartItems = (alert) => async (dispatch) => {
   try {
-    const response = await axios.get("/api/v1/eats/cart/get-cart");
+    const response = await axios.get("https://foodorder-project-7vs6.onrender.com/api/v1/eats/cart/get-cart");
     dispatch({
       type: FETCH_CART,
       payload: response.data.data,
@@ -26,7 +26,7 @@ export const addItemToCart =
   (foodItemId, restaurant, quantity, alert) => async (dispatch, getState) => {
     try {
       const { user } = getState().auth; // return the currnt store tree
-      const response = await axios.post("/api/v1/eats/cart/add-to-cart", {
+      const response = await axios.post("https://foodorder-project-7vs6.onrender.com/api/v1/eats/cart/add-to-cart", {
         userId: user._id,
         foodItemId,
         restaurantId: restaurant,
@@ -53,7 +53,7 @@ export const updateCartQuantity =
         foodItemId = foodItemId._id;
       }
 
-      const response = await axios.post("/api/v1/eats/cart/update-cart-item", {
+      const response = await axios.post("https://foodorder-project-7vs6.onrender.com/api/v1/eats/cart/update-cart-item", {
         userId: user._id,
         foodItemId: foodItemId,
         quantity,
